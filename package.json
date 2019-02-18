@@ -1,0 +1,70 @@
+{
+    "name": "simple-weather",
+    "version": "1.0.0",
+    "description": "Web application that displays weather data",
+    "scripts": {
+        "build": "rm -rf dist; export NODE_ENV=production; webpack #this will build and write to dist",
+        "start": "webpack-dev-server #this will build but live in memory",
+        "test": ":"
+    },
+    "main": "src/index.js",
+    "author": "Eric Majerus",
+    "license": "ISC",
+    "homepage": "https://bitbucket.org/ackmanx/simple-weather#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@bitbucket.org/ackmanx/simple-weather.git"
+    },
+    "engines": {
+        "node": "8.x"
+    },
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "7.3.0",
+        "@babel/polyfill": "7.2.5",
+        "@babel/preset-react": "7.0.0",
+        "chart.js": "2.7.3",
+        "chartjs-plugin-datalabels": "0.5.0",
+        "copy-webpack-plugin": "4.6.0",
+        "css-loader": "2.1.0",
+        "less": "3.9.0",
+        "less-loader": "4.1.0",
+        "prop-types": "15.6.2",
+        "react": "16.8.1",
+        "react-dom": "16.8.1",
+        "react-redux": "6.0.0",
+        "react-responsive": "6.1.1",
+        "serve": "10.1.2",
+        "style-loader": "0.23.1",
+        "url-loader": "1.1.2",
+        "whatwg-fetch": "3.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.2.2",
+        "@babel/preset-env": "7.3.1",
+        "babel-loader": "8.0.5",
+        "html-webpack-plugin": "3.2.0",
+        "redux-devtools-extension": "2.13.8",
+        "webpack": "4.29.1",
+        "webpack-cli": "3.2.3",
+        "webpack-dev-server": "3.1.14",
+        "wt-cli": "11.0.2"
+    },
+    "notesAboutDependencies": {
+        "----frontend-dependencies---": "",
+        "react-dom": "used to attach react components to the dom",
+        "react-redux": "provides ability to use redux with react",
+        "redux-thunk": "provides ability to pass functions to redux for asynchronous uses",
+        "react-responsive": "allows me to use media queries to target mobile devices",
+        "redux-devtools-extension": "using this removes the need for custom code looking for devtools extension in the app",
+        "----backend-dependencies---": "",
+        "node-fetch": "fetch is not native to node 8",
+        "serve": "static server being i'm not using a standard node server",
+        "wt-cli": "webtask.io cli for managing webtask endpoints"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}

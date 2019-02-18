@@ -1,0 +1,21 @@
+<!--
+This template is used for both production deploys and development.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.png">
+    <title>Simple Weather (dev)</title>
+</head>
+<body>
+<main id="root"/>
+<script>
+    //Don't give a domain so webpack dev server can intercept API calls
+    window.api = ''
+</script>
+<!-- Being we use HtmlWebpackPlugin, it will automatically include a script tag for our bundle here -->
+</body>
+</html>
