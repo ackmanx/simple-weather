@@ -1,15 +1,16 @@
 import './app.less'
 import React from 'react'
-import {Desktop, Mobile} from '../responsive'
+import {Desktop, Mobile} from '../../responsive'
 import {connect} from 'react-redux'
+import {Navbar} from '../navbar/navbar'
 
 export const App = () => (
     <div className='app'>
         <Desktop>
-            {null}
+            <Navbar/>
         </Desktop>
         <Mobile>
-            {null}
+            <Navbar/>
         </Mobile>
     </div>
 )
