@@ -1,8 +1,8 @@
-import './App.less'
+import './app.less'
 import React from 'react'
 import {Desktop, Mobile} from '../responsive'
-import {ConnectedMyChart} from './MyChart'
 import {connect} from 'react-redux'
+import {ConnectedMyChart} from './my-chart'
 
 export class App extends React.Component {
 
@@ -17,6 +17,9 @@ export class App extends React.Component {
                     <ConnectedMyChart/>
                 </Desktop>
                 <Mobile>
+                    <button>Currently</button>
+                    <button>Hourly</button>
+                    <button>Daily</button>
                 </Mobile>
             </div>
         )
