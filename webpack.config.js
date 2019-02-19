@@ -28,7 +28,7 @@ module.exports = function () {
         },
         plugins: [
             //HtmlWebpackPlugin automatically adds script tags for our entry points into the template
-            isProduction ? new HtmlWebpackPlugin({template: './src/index.html'}) : new HtmlWebpackPlugin({template: './src/index-local.html'}),
+            isProduction ? new HtmlWebpackPlugin({template: './templates/index.html'}) : new HtmlWebpackPlugin({template: './templates/index-local.html'}),
             new CopyWebpackPlugin([
                 {from: './favicon.png'},
             ]),
