@@ -40,22 +40,6 @@ export class MyChart extends React.Component {
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
                         },
-                        {
-                            //Need to make API call for dark sky historical data, cache it, then put each corresponding day here
-                            label: 'Record High',
-                            data: [50, 45, 40, 35, 30, 25],
-                            backgroundColor: 'transparent',
-                            borderColor: 'rgba(255, 206, 86, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            //Need to make API call for dark sky historical data, cache it, then put each corresponding day here
-                            label: 'Record Low',
-                            data: [-25, -35, -50, -20, -2, -30],
-                            backgroundColor: 'transparent',
-                            borderColor: 'rgba(255, 159, 64, 1)',
-                            borderWidth: 1
-                        },
                     ]
                 },
             })
@@ -63,7 +47,7 @@ export class MyChart extends React.Component {
     }
 
     render() {
-        return <canvas id="myChart" ref={el => this.chartRef = el}/>
+        return <canvas id='myChart' ref={el => this.chartRef = el}/>
     }
 }
 
