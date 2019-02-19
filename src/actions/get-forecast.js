@@ -1,19 +1,17 @@
-import {xyz_payload, xyz_start, xyz_stop} from './action-types'
+import {forecast_payload, forecast_start, forecast_stop} from './action-types'
 
 export function getForecast() {
-    return dispatch => {
-        dispatch({type: xyz_start})
+    return async dispatch => {
+        dispatch({type: forecast_start})
 
-        fetch(`${window.api}/weather`)
-            .then(res => {
-                if (res.status !== 200) {
-                    console.error('Uh oh. The webtask did not work!')
-                    return
-                }
+        const response = await fetch(`${window.api}/weather`)
+        const json = await response.json()
 
-                res.json().then(json => dispatch({type: xyz_payload, payload: json}))
-            })
-            .catch(e => console.error(e))
-            .finally(() => dispatch({type: xyz_stop}))
+        if (response.status !== 200) {
+            return console.error('Uh oh! Request did not work', json);
+        }
+
+        dispatch({type: forecast_payload, payload: json})
+        dispatch({type: forecast_stop})
     }
 }

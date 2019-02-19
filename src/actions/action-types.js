@@ -1,3 +1,3 @@
-export const xyz_payload = 'xyz_payload'
-export const xyz_start = 'xyz_start'
-export const xyz_stop = 'xyz_stop'
+export const forecast_payload = 'forecast_payload'
+export const forecast_start = 'forecast_start'
+export const forecast_stop = 'forecast_stop'

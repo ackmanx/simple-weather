@@ -1,3 +1,16 @@
+import {forecast_payload} from '../actions/action-types'
+
+export function daily(state = {}, action = {}) {
+
+    switch (action.type) {
+        case forecast_payload:
+            return filterWeatherData(action.payload)
+
+        default:
+            return state
+    }
+}
+
 export function filterWeatherData(json) {
     const filtered = {
         daysInForecast: [],

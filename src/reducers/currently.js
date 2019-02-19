@@ -1,12 +1,23 @@
+import {forecast_payload} from '../actions/action-types'
+
+export function currently(state = {}, action = {}) {
+
+    switch (action.type) {
+        case forecast_payload:
+            return filterWeatherData(action.payload)
+
+        default:
+            return state
+    }
+}
+
 export function filterWeatherData(json) {
-    const filtered = {}
     const currently = json.currently
 
     if (!currently) return {}
 
-    filtered.time = new Date(currently.time)
-
-    filtered.currently = {
+    return {
+        time: new Date(currently.time * 1000),
         temperature: {
             label: 'Temperature',
             value: currently.temperature,
@@ -38,6 +49,4 @@ export function filterWeatherData(json) {
             unit: 'mph',
         },
     }
-
-    return filtered
 }
