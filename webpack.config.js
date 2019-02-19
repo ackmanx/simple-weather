@@ -68,7 +68,7 @@ module.exports = function () {
             ]
         },
         devServer: {
-            before: require('./webpack.api.stubs.js'),
+            before: require('./api/webpack.api.stubs.js'),
             host: '0.0.0.0', //without this, server starts on localhost and isn't available via IP
         }
     }
