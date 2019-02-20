@@ -20,32 +20,32 @@ export function filterWeatherData(json) {
         time: new Date(currently.time * 1000),
         temperature: {
             label: 'Temperature',
-            value: currently.temperature,
+            value: Math.round(currently.temperature),
             unit: 'f',
         },
         feelsLike: {
             label: 'Feels Like',
-            value: currently.apparentTemperature,
+            value: Math.round(currently.apparentTemperature),
             unit: 'f',
         },
         dewPoint: {
             label: 'Dew Point',
-            value: currently.dewPoint,
+            value: Math.round(currently.dewPoint),
             unit: 'f',
         },
         humidity: {
             label: 'Humidity',
-            value: currently.humidity,
+            value: currently.humidity * 100,
             unit: '%',
         },
         windSpeed: {
             label: 'Wind Speed',
-            value: currently.windSpeed,
+            value: Math.round(currently.windSpeed),
             unit: 'mph',
         },
         windGust: {
             label: 'Wind Gust',
-            value: currently.windGust,
+            value: Math.round(currently.windGust),
             unit: 'mph',
         },
     }
