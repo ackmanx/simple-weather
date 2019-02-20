@@ -50,7 +50,7 @@ export class Daily extends React.Component {
     render() {
         return (
             <div className='daily'>
-                <canvas id='myChart' ref={el => this.chartRef = el}/>
+                <canvas id='myChart' ref={el => this.chartRef = el} width='400' height='400'/>
             </div>
         )
     }

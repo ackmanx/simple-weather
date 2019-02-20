@@ -4,9 +4,11 @@ import {Desktop, Mobile} from '../../responsive'
 import {connect} from 'react-redux'
 import {ConnectedCurrently} from '../currently/currently'
 import {ConnectedDaily} from '../daily/daily'
+import {Header} from '../header/header'
 
 export const App = () => (
     <div className='app'>
+        <Header/>
         <Desktop>
             <ConnectedCurrently/>
             <ConnectedDaily/>
