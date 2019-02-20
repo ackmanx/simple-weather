@@ -1,9 +1,10 @@
+import './daily.less'
 import React from 'react'
 import {connect} from 'react-redux'
 import Chart from 'chart.js'
 import 'chartjs-plugin-datalabels'
 
-export class MyChart extends React.Component {
+export class Daily extends React.Component {
 
     componentDidUpdate(prevProps) {
         //This should only happen once. Chart data isn't in redux until after first render, so componentDidMount cannot be used
@@ -47,16 +48,19 @@ export class MyChart extends React.Component {
     }
 
     render() {
-        return <canvas id='myChart' ref={el => this.chartRef = el}/>
+        return (
+            <div className='daily'>
+                <canvas id='myChart' ref={el => this.chartRef = el}/>
+            </div>
+        )
     }
 }
-
 const mapStateToProps = state => ({
+    daysInForecast: state.daily.daysInForecast,
     forecastedHighs: state.daily.forecastedHighs,
     forecastedLows: state.daily.forecastedLows,
-    daysInForecast: state.daily.daysInForecast,
 })
 
 const mapDispatchToProps = dispatch => ({})
 
-export const ConnectedMyChart = connect(mapStateToProps, mapDispatchToProps)(MyChart)
+export const ConnectedDaily = connect(mapStateToProps, mapDispatchToProps)(Daily)

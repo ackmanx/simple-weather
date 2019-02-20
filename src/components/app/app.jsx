@@ -3,14 +3,17 @@ import React from 'react'
 import {Desktop, Mobile} from '../../responsive'
 import {connect} from 'react-redux'
 import {ConnectedCurrently} from '../currently/currently'
+import {ConnectedDaily} from '../daily/daily'
 
 export const App = () => (
     <div className='app'>
         <Desktop>
             <ConnectedCurrently/>
+            <ConnectedDaily/>
         </Desktop>
         <Mobile>
             <ConnectedCurrently/>
+            <ConnectedDaily/>
         </Mobile>
     </div>
 )
