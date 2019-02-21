@@ -5,7 +5,8 @@
     "scripts": {
         "build": "rm -rf dist; export NODE_ENV=production; webpack #this will build and write to dist",
         "start": "webpack-dev-server #this will build but live in memory",
-        "test": ":"
+        "test": ":",
+        "webtask-deploy": "sh api/webtask-deploy.sh"
     },
     "main": "src/index.js",
     "author": "Eric Majerus",

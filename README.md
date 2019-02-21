@@ -7,13 +7,13 @@
 
 ## Netlify
 
-https://CHANGE_ME.netlify.com/
+https://simple-weather-graph.netlify.com/
 
 To set up, I created a free account and connected Netlify to my BitBucket repository. They added a git hook to it and auto-deploy when I push to `origin/netlify`.
 
-On push, Netlify runs my user-defined npm script (set via their control panel UI on the website) `netlify-build`. They will then host whatever is found in the `build` directory (also user-defined on their UI).
+On push, Netlify runs my user-defined npm script (set via their control panel UI on the website) `build`. They will then host whatever is found in the `dist` directory (also user-defined on their UI).
 
-This application has no server component hosted by itself. I think Netlify is for static hosting only? 
+This application has no server component hosted by itself. 
 
 
 # Where the data comes from
