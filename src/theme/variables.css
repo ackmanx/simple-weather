@@ -1,0 +1,33 @@
+:root {
+  --px-025: 2px;
+  --px-05: 4px;
+  --px-075: 6px;
+  --px-1: 8px;
+  --px-15: 12px;
+  --px-2: 16px;
+  --px-3: 24px;
+  --px-4: 32px;
+  --px-5: 40px;
+  --px-6: 48px;
+
+  --font-size-xsmall: 0.75rem; /* 12px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-normal: 1rem; /* 16px */
+  --font-size-bigger: 1.25rem; /* 20px */
+  --font-size-large: 1.5rem; /* 24px */
+  --font-size-xlarge: 1.75rem; /* 28px */
+  --font-size-xxlarge: 2rem; /* 32px */
+
+  --font-body: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
+  --font-header: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
+
+  --color-background: #f5f5f5;
+  --color-text: rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1d1f20;
+    --color-text: #e3e1de;
+  }
+}
