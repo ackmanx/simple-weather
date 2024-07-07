@@ -1,12 +1,15 @@
 <script lang="ts">
   import { page } from '$app/stores'
+  import { DateTime } from 'luxon'
 
-  const latest = $page.data.latestObservations.properties
+  // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
+  const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
-  /* prettier-ignore */ console.log('^_^', latest)
+  const api = $page.data.apiWeatherGov
+  const forecast = $page.data.forecastWeatherGov
 
-  function toFahrenheit(celcius: number | null) {
-    return celcius ? `${Math.round(celcius * 1.8 + 32)}f` : '---'
+  function toFahrenheit(celsius: number | null) {
+    return celsius ? `${Math.round(celsius * 1.8 + 32)}f` : '---'
   }
 
   function toMph(kph: number | null) {
@@ -20,7 +23,7 @@
 
 <style>
   div {
-    overflow: hidden;
+    display: flex;
   }
 </style>
 
@@ -31,22 +34,58 @@
 <!-- svelte-ignore component_name_lowercase -->
 <page>
   <h1>Current Conditions</h1>
-  <ul>
-    <li><img src={latest.icon} alt="shut up intellij" /></li>
-    <li>Description: {latest.textDescription}</li>
-    <li>Timestamp: {latest.timestamp}</li>
-    <li>Station: {latest.station}</li>
-    <li>Temperature: {toFahrenheit(latest.temperature.value)}</li>
-    <li>Heat Index: {toFahrenheit(latest.heatIndex.value)}</li>
-    <li>Low Temperature Last 24hr: {toFahrenheit(latest.minTemperatureLast24Hours.value)}</li>
-    <li>High Temperature Last 24hr: {toFahrenheit(latest.maxTemperatureLast24Hours.value)}</li>
-    <li>Dew Point: {toFahrenheit(latest.dewpoint.value)}</li>
-    <li>Humidity: {latest.relativeHumidity.value}%</li>
-    <li>Wind Speed: {toMph(latest.windSpeed.value)}</li>
-    <li>Wind Gust: {toMph(latest.windGust.value)}</li>
-    <li>Wind Chill: {toFahrenheit(latest.windChill.value)}</li>
-    <li>Precip Last 1hr: {toInches(latest.precipitationLastHour.value)}</li>
-    <li>Precip Last 3hr: {toInches(latest.precipitationLast3Hours.value)}</li>
-    <li>Precip Last 6hr: {toInches(latest.precipitationLast6Hours.value)}</li>
-  </ul>
+  <div>
+    <ul>
+      <li>api.weather.gov</li>
+      <li><img src={api.icon} alt="shut up intellij" /></li>
+      <li>Description: {api.textDescription}</li>
+      <li>Timestamp: {DateTime.fromISO(api.timestamp).toRelative()}</li>
+      <li>Temperature: {toFahrenheit(api.temperature.value)}</li>
+      <li>Heat Index: {toFahrenheit(api.heatIndex.value)}</li>
+
+      <li>Dew Point: {toFahrenheit(api.dewpoint.value)}</li>
+      <li>Humidity: {api.relativeHumidity.value}%</li>
+      <li>Wind Speed: {toMph(api.windSpeed.value)}</li>
+      <li>Wind Gust: {toMph(api.windGust.value)}</li>
+      <li>Wind Chill: {toFahrenheit(api.windChill.value)}</li>
+      <li>Precip Last 1hr: {toInches(api.precipitationLastHour.value)}</li>
+      <li>Precip Last 3hr: {toInches(api.precipitationLast3Hours.value)}</li>
+      <li>Precip Last 6hr: {toInches(api.precipitationLast6Hours.value)}</li>
+
+      <li>Low Temperature Last 24hr: {toFahrenheit(api.minTemperatureLast24Hours.value)}</li>
+      <li>High Temperature Last 24hr: {toFahrenheit(api.maxTemperatureLast24Hours.value)}</li>
+      <li>Station: {api.station}</li>
+    </ul>
+    <ul>
+      <li>forecast.weather.gov</li>
+      <li>
+        <img
+          src={`https://forecast.weather.gov/newimages/medium/${forecast.Weatherimage}`}
+          alt="shut up intellij"
+        />
+      </li>
+      <li>Description: {forecast.Weather}</li>
+      <li>
+        Timestamp: {DateTime.fromFormat(
+          forecast.Date.slice(0, -4),
+          FORECAST_PARSE_FORMAT
+        ).toRelative()}
+      </li>
+      <li>Temperature: {forecast.Temp}f</li>
+      <li>Heat Index: ?</li>
+
+      <li>Dew Point: {forecast.Dewp}f</li>
+      <li>Humidity: {forecast.Relh}%</li>
+      <li>Wind Speed: {forecast.Winds}mph</li>
+      <li>Wind Gust: {forecast.Gust}mph</li>
+      <li>Wind Chill: {forecast.WindChill}f</li>
+      <li>Precip Last: ?</li>
+      <li>Precip Last: ?</li>
+      <li>Precip Last: ?</li>
+
+      <li>Low Temperature Last 24hr: ?</li>
+      <li>High Temperature Last 24hr: ?</li>
+      <li>Station: {forecast.id}</li>
+    </ul>
+  </div>
 </page>
