@@ -7,9 +7,7 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      collectionDocuments: {
-        createdForTesting: string
-      }[]
+      latestObservations: any
     }
   }
 }

@@ -1,15 +1,14 @@
-import { SomeCollection } from '$db/collections/some-collection'
-
 interface ResponseBody {
-  collectionDocuments: {
-    createdForTesting: string
-  }[]
+  latestObservations: any
 }
 
 export const load = async (): Promise<ResponseBody> => {
-  await SomeCollection.insertOne({ createdForTesting: new Date().toISOString() })
+  const response = await fetch(
+    'https://api.weather.gov/stations/KANE/observations/latest?require_qc=false'
+  )
+  const observations = await response.json()
 
   return {
-    collectionDocuments: await SomeCollection.find({}, { projection: { _id: 0 } }).toArray(),
+    latestObservations: observations,
   }
 }
