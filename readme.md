@@ -1,6 +1,4 @@
-# SvelteKit Typescript Skeleton
-
-If creating a new app, try to update this repo first and verify things are working. This avoids the need to figure out what to delete and keep when copying an existing project.
+# Simple Weather
 
 ## Intellij - Imports not showing up as errors if file not found
 
