@@ -1,5 +1,5 @@
 interface ResponseBody {
-  apiWeatherGov: any
+  heatIndex: any
   forecastWeatherGov: any
 }
 
@@ -16,7 +16,7 @@ export const load = async (): Promise<ResponseBody> => {
   const observationsForecast = await responseForecast.json()
 
   return {
-    apiWeatherGov: observationsApi.properties,
+    heatIndex: observationsApi.properties.heatIndex.value,
     forecastWeatherGov: observationsForecast.currentobservation,
   }
 }

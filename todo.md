@@ -16,3 +16,15 @@ https://api.weather.gov/gridpoints/MPX/109,77/forecast/hourly?units=us
 
 ## Icons
 https://thenounproject.com/browse/collection-icon/weather-216606/?p=1
+
+## For Later
+```typescript
+
+  function toMph(kph: number | null) {
+    return kph ? `${Math.round(kph / 1.609)}mph` : '---'
+  }
+
+  function toInches(mm: number | null) {
+    return mm ? `${Math.round(mm / 25.4)}in` : '---'
+  }
+```
