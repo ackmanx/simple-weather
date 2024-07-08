@@ -10,7 +10,8 @@ export const load = async (): Promise<ResponseBody> => {
   const observationsApi = await responseApi.json()
 
   const responseForecast = await fetch(
-    'https://forecast.weather.gov/MapClick.php?lat=45.14&lon=-93.2099999&FcstType=json'
+    // 'https://forecast.weather.gov/MapClick.php?lat=45.14&lon=-93.2099999&FcstType=json',
+    'https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json'
   )
   const observationsForecast = await responseForecast.json()
 

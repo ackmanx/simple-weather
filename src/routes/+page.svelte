@@ -19,6 +19,8 @@
   function toInches(mm: number | null) {
     return mm ? `${Math.round(mm / 25.4)}in` : '---'
   }
+
+  /* prettier-ignore */ console.log('^_^', forecast.Date.slice(0, -4))
 </script>
 
 <style>
