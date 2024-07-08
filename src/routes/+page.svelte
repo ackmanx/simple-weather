@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import { DateTime } from 'luxon'
+  import PartlyCloudyIcon from '$images/source/partly-cloudy.svg'
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
@@ -9,6 +10,10 @@
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
   const observationsDate = forecast.Date.slice(0, -4)
+
+  const weatherIcons = {
+    'Partly Cloudy': PartlyCloudyIcon,
+  }
 
   $effect(() => {
     const _body = document.querySelector('body')
@@ -30,6 +35,10 @@
 
   weather-icon {
     text-align: center;
+
+    img {
+      width: 100px;
+    }
   }
 
   conditions {
@@ -55,10 +64,7 @@
 <!-- svelte-ignore component_name_lowercase -->
 <page>
   <weather-icon>
-    <img
-      src={`https://forecast.weather.gov/newimages/medium/${forecast.Weatherimage}`}
-      alt="shut up inteldivj"
-    />
+    <img src={weatherIcons[forecast.Weather]} alt="shut up intellij" />
   </weather-icon>
 
   <conditions>
@@ -66,8 +72,21 @@
     <condition title={observationsDate}>
       {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
     </condition>
-    <condition>{forecast.Temp}f</condition>
-    <condition>Heat Index: {toFahrenheit(heatIndex)}</condition>
+    <condition>
+      <a
+        href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"
+        target="_blank"
+        >{forecast.Temp}f
+      </a></condition
+    >
+    <condition>
+      <a
+        href="https://api.weather.gov/stations/KANE/observations/latest?require_qc=false"
+        target="_blank"
+      >
+        Heat Index: {toFahrenheit(heatIndex)}</a
+      ></condition
+    >
 
     <condition>Dew Point: {forecast.Dewp}f</condition>
     <condition>Humidity: {forecast.Relh}%</condition>
