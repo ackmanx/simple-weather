@@ -1,5 +1,9 @@
 app,
 page-slot,
-page {
+page,
+weather-icon,
+conditions,
+condition,
+genius-idea {
   display: block;
 }

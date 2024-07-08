@@ -5,9 +5,18 @@
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
+  const background = $page.data.background
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
   const observationsDate = forecast.Date.slice(0, -4)
+
+  $effect(() => {
+    const _body = document.querySelector('body')
+
+    if (_body) {
+      _body.style.background = background
+    }
+  })
 
   function toFahrenheit(celsius: number | null) {
     return celsius ? `${Math.round(celsius * 1.8 + 32)}f` : '---'
@@ -15,8 +24,27 @@
 </script>
 
 <style>
-  div {
+  page {
+    width: 350px;
+  }
+
+  weather-icon {
+    text-align: center;
+  }
+
+  conditions {
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  condition {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #56595c;
+    border-radius: 10px;
+    background-color: white;
+    margin: 8px;
+    padding: 8px;
   }
 </style>
 
@@ -26,30 +54,31 @@
 
 <!-- svelte-ignore component_name_lowercase -->
 <page>
-  <h1>Current Conditions</h1>
-  <div>
-    <ul>
-      <li>
-        <img
-          src={`https://forecast.weather.gov/newimages/medium/${forecast.Weatherimage}`}
-          alt="shut up intellij"
-        />
-      </li>
-      <li>Description: {forecast.Weather}</li>
-      <li title={observationsDate}>
-        Timestamp: {DateTime.fromFormat(
-          forecast.Date.slice(0, -4),
-          FORECAST_PARSE_FORMAT
-        ).toRelative()}
-      </li>
-      <li>Temperature: {forecast.Temp}f</li>
-      <li>Heat Index: {toFahrenheit(heatIndex)}</li>
+  <weather-icon>
+    <img
+      src={`https://forecast.weather.gov/newimages/medium/${forecast.Weatherimage}`}
+      alt="shut up inteldivj"
+    />
+  </weather-icon>
 
-      <li>Dew Point: {forecast.Dewp}f</li>
-      <li>Humidity: {forecast.Relh}%</li>
-      <li>Wind Speed: {forecast.Winds}mph</li>
-      <li>Wind Gust: {forecast.Gust}mph</li>
-      <li>Wind Chill: {forecast.WindChill}f</li>
-    </ul>
-  </div>
+  <conditions>
+    <condition>{forecast.Weather}</condition>
+    <condition title={observationsDate}>
+      {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
+    </condition>
+    <condition>{forecast.Temp}f</condition>
+    <condition>Heat Index: {toFahrenheit(heatIndex)}</condition>
+
+    <condition>Dew Point: {forecast.Dewp}f</condition>
+    <condition>Humidity: {forecast.Relh}%</condition>
+    <condition>Wind Speed: {forecast.Winds}mph</condition>
+
+    {#if forecast.Gust !== 'NA'}
+      <condition>Wind Gust: {forecast.Gust}mph</condition>
+    {/if}
+
+    {#if forecast.WindChill !== 'NA'}
+      <condition>Wind Chill: {forecast.WindChill}f</condition>
+    {/if}
+  </conditions>
 </page>
