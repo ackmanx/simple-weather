@@ -44,7 +44,7 @@
       <li>Heat Index: {toFahrenheit(api.heatIndex.value)}</li>
 
       <li>Dew Point: {toFahrenheit(api.dewpoint.value)}</li>
-      <li>Humidity: {api.relativeHumidity.value}%</li>
+      <li>Humidity: {Math.round(api.relativeHumidity.value)}%</li>
       <li>Wind Speed: {toMph(api.windSpeed.value)}</li>
       <li>Wind Gust: {toMph(api.windGust.value)}</li>
       <li>Wind Chill: {toFahrenheit(api.windChill.value)}</li>
