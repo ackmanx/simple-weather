@@ -2,24 +2,26 @@
   import { page } from '$app/stores'
   import { DateTime } from 'luxon'
   import PartlyCloudyIcon from '$images/source/partly-cloudy.svg'
+  import SunnyIcon from '$images/source/sunny.svg'
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
-  const background = $page.data.backgroundColor
+  const backgroundColor = $page.data.backgroundColor
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
   const observationsDate = forecast.Date.slice(0, -4)
 
   const weatherIcons = {
     'Partly Cloudy': PartlyCloudyIcon,
+    Fair: SunnyIcon,
   }
 
   $effect(() => {
     const _body = document.querySelector('body')
 
     if (_body) {
-      _body.style.backgroundColor = background
+      _body.style.backgroundColor = backgroundColor
     }
   })
 
