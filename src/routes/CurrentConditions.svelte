@@ -14,7 +14,7 @@
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
-  const weatherIcons = {
+  const weatherIcons: Record<string, any> = {
     'Partly Cloudy': PartlyCloudyIcon,
     Fair: SunnyIcon,
   }
