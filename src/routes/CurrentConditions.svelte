@@ -29,6 +29,10 @@
 </script>
 
 <style>
+  the-summary {
+    color: var(--color-background);
+  }
+
   weather-icon {
     text-align: center;
 
@@ -53,30 +57,21 @@
 </style>
 
 <component>
-  <weather-icon>
-    <img src={weatherIcons[forecast.Weather]} alt="shut up intellij" />
-  </weather-icon>
+  <the-summary>
+    <weather-icon>
+      <img src={weatherIcons[forecast.Weather]} alt="shut up intellij" />
+    </weather-icon>
+    <div>
+      <span>{forecast.Temp}f</span>
+      <span>but feels like {toFahrenheit(heatIndex)}</span>
+      <span>{forecast.Weather}</span>
+    </div>
+  </the-summary>
 
   <conditions>
-    <condition>{forecast.Weather}</condition>
     <condition title={observationsDate}>
       {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
     </condition>
-    <condition>
-      <a
-        href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"
-        target="_blank"
-        >{forecast.Temp}f
-      </a></condition
-    >
-    <condition>
-      <a
-        href="https://api.weather.gov/stations/KANE/observations/latest?require_qc=false"
-        target="_blank"
-      >
-        Heat Index: {toFahrenheit(heatIndex)}</a
-      ></condition
-    >
 
     <condition>Dew Point: {forecast.Dewp}f</condition>
     <condition>Humidity: {forecast.Relh}%</condition>
