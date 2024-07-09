@@ -6,7 +6,7 @@
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
-  const background = $page.data.background
+  const background = $page.data.backgroundColor
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
   const observationsDate = forecast.Date.slice(0, -4)
@@ -19,7 +19,7 @@
     const _body = document.querySelector('body')
 
     if (_body) {
-      _body.style.background = background
+      _body.style.backgroundColor = background
     }
   })
 
@@ -49,7 +49,6 @@
   condition {
     width: 100px;
     height: 100px;
-    border: 1px solid #56595c;
     border-radius: 10px;
     background-color: white;
     margin: 8px;
