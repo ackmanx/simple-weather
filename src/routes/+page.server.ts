@@ -1,5 +1,4 @@
 interface ResponseBody {
-  backgroundColor: string
   heatIndex: any
   forecastWeatherGov: any
 }
@@ -17,7 +16,6 @@ export const load = async (): Promise<ResponseBody> => {
   const observationsForecast = await responseForecast.json()
 
   return {
-    backgroundColor: 'rgba(78,202,2,.35)',
     heatIndex: observationsApi.properties.heatIndex.value,
     forecastWeatherGov: observationsForecast.currentobservation,
   }

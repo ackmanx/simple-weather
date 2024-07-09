@@ -16,11 +16,6 @@
     display: flex;
     gap: 8px;
     margin-top: 50px;
-    color: var(--color-background);
-  }
-
-  a {
-    color: var(--color-background);
   }
 </style>
 

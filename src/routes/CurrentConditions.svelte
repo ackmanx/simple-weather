@@ -4,7 +4,6 @@
   import { DateTime } from 'luxon'
   import { toFahrenheit } from '$utils'
 
-  const backgroundColor = $page.data.backgroundColor
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
 
@@ -14,21 +13,9 @@
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
-
-  $effect(() => {
-    const _body = document.querySelector('body')
-
-    if (_body) {
-      _body.style.backgroundColor = backgroundColor
-    }
-  })
 </script>
 
 <style>
-  the-summary {
-    color: var(--color-background);
-  }
-
   i-dont-know-weather-and-data-i-guess {
     display: flex;
     gap: 16px;
@@ -63,7 +50,6 @@
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    background-color: var(--color-background);
     margin: 8px;
     padding: 8px;
   }
