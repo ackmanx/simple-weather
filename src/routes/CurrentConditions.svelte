@@ -46,7 +46,7 @@
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--color-background);
     margin: 8px;
     padding: 8px;
   }
