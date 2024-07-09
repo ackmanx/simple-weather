@@ -1,22 +1,23 @@
+import { toFahrenheit } from '$utils'
+
 interface ResponseBody {
   heatIndex: any
   forecastWeatherGov: any
 }
 
 export const load = async (): Promise<ResponseBody> => {
-  const responseApi = await fetch(
+  const weatherApiResponse = await fetch(
     'https://api.weather.gov/stations/KANE/observations/latest?require_qc=false'
   )
-  const observationsApi = await responseApi.json()
+  const weatherApiData = await weatherApiResponse.json()
 
-  const responseForecast = await fetch(
-    // 'https://forecast.weather.gov/MapClick.php?lat=45.14&lon=-93.2099999&FcstType=json',
+  const forecastApiResponse = await fetch(
     'https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json'
   )
-  const observationsForecast = await responseForecast.json()
+  const forecastApiData = await forecastApiResponse.json()
 
   return {
-    heatIndex: observationsApi.properties.heatIndex.value,
-    forecastWeatherGov: observationsForecast.currentobservation,
+    heatIndex: toFahrenheit(weatherApiData.properties.heatIndex.value).toString(),
+    forecastWeatherGov: forecastApiData.currentobservation,
   }
 }

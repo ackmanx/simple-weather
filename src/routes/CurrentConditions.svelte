@@ -2,7 +2,6 @@
   import { page } from '$app/stores'
 
   import { DateTime } from 'luxon'
-  import { toFahrenheit } from '$utils'
 
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
@@ -14,7 +13,7 @@
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
 
-  /* prettier-ignore */ console.log('^_^', toFahrenheit(heatIndex), forecast.Temp, heatIndex !== forecast.Temp)
+  /* prettier-ignore */ console.log('^_^', heatIndex, forecast.Temp, heatIndex !== forecast.Temp)
 </script>
 
 <style>
@@ -67,8 +66,8 @@
       <div>
         <current-temperature>
           {forecast.Temp}f
-          {#if heatIndex && toFahrenheit(heatIndex) !== forecast.Temp}
-            <span>but feels like {toFahrenheit(heatIndex)}f</span>
+          {#if heatIndex !== forecast.Temp}
+            <span>but feels like {heatIndex}f</span>
           {/if}
         </current-temperature>
         <current-weather-description>{forecast.Weather}</current-weather-description>
