@@ -32,6 +32,7 @@
   i-dont-know-weather-and-data-i-guess {
     display: flex;
     gap: 16px;
+    margin-bottom: 8px;
   }
 
   img {
@@ -49,6 +50,8 @@
 
   observation-date {
     font-size: var(--font-size-small);
+    width: 150px;
+    text-align: center;
   }
 
   conditions {
