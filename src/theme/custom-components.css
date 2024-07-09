@@ -7,6 +7,9 @@ condition,
 component,
 the-summary,
 i-dont-know-weather-and-data-i-guess,
+current-temperature,
+current-weather-description,
+observation-date
 genius-idea {
   display: block;
 }

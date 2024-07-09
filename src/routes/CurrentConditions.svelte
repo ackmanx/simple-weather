@@ -35,7 +35,20 @@
   }
 
   img {
-    width: 100px;
+    width: 150px;
+    border-radius: 10px;
+  }
+
+  current-temperature {
+    font-size: var(--font-size-xxlarge);
+
+    span {
+      font-size: var(--font-size-normal);
+    }
+  }
+
+  observation-date {
+    font-size: var(--font-size-small);
   }
 
   conditions {
@@ -61,19 +74,22 @@
         alt="shut up intellij"
       />
       <div>
-        <div>{forecast.Temp}f <span>but feels like {toFahrenheit(heatIndex)}</span></div>
-        <div>{forecast.Weather}</div>
+        <current-temperature>
+          {forecast.Temp}f
+          {#if heatIndex}<span>but feels like {toFahrenheit(heatIndex)}</span>{/if}
+        </current-temperature>
+        <current-weather-description>{forecast.Weather}</current-weather-description>
       </div>
     </i-dont-know-weather-and-data-i-guess>
 
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div onclick={() => (showDate = true)}>
+    <observation-date onclick={() => (showDate = true)}>
       {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
       {#if showDate}
         - {observationsDate}
       {/if}
-    </div>
+    </observation-date>
   </the-summary>
 
   <conditions>
