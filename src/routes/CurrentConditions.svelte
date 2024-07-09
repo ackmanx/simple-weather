@@ -3,21 +3,17 @@
 
   import { DateTime } from 'luxon'
   import { toFahrenheit } from '$utils'
-  import PartlyCloudyIcon from '$images/source/partly-cloudy.svg'
-  import SunnyIcon from '$images/source/sunny.svg'
 
   const backgroundColor = $page.data.backgroundColor
   const heatIndex = $page.data.heatIndex
   const forecast = $page.data.forecastWeatherGov
+
+  let showDate = $state(false)
+
   const observationsDate = forecast.Date.slice(0, -4)
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
-
-  const weatherIcons: Record<string, any> = {
-    'Partly Cloudy': PartlyCloudyIcon,
-    Fair: SunnyIcon,
-  }
 
   $effect(() => {
     const _body = document.querySelector('body')
@@ -60,14 +56,23 @@
 <component>
   <the-summary>
     <i-dont-know-weather-and-data-i-guess>
-      <img src={weatherIcons[forecast.Weather]} alt="shut up intellij" />
+      <img
+        src={`https://forecast.weather.gov/newimages/large/${forecast.Weatherimage}`}
+        alt="shut up intellij"
+      />
       <div>
         <div>{forecast.Temp}f <span>but feels like {toFahrenheit(heatIndex)}</span></div>
         <div>{forecast.Weather}</div>
       </div>
     </i-dont-know-weather-and-data-i-guess>
-    <div>
+
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div onclick={() => (showDate = true)}>
       {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
+      {#if showDate}
+        - {observationsDate}
+      {/if}
     </div>
   </the-summary>
 
