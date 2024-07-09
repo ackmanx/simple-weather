@@ -33,12 +33,13 @@
     color: var(--color-background);
   }
 
-  weather-icon {
-    text-align: center;
+  i-dont-know-weather-and-data-i-guess {
+    display: flex;
+    gap: 16px;
+  }
 
-    img {
-      width: 100px;
-    }
+  img {
+    width: 100px;
   }
 
   conditions {
@@ -58,21 +59,19 @@
 
 <component>
   <the-summary>
-    <weather-icon>
+    <i-dont-know-weather-and-data-i-guess>
       <img src={weatherIcons[forecast.Weather]} alt="shut up intellij" />
-    </weather-icon>
+      <div>
+        <div>{forecast.Temp}f <span>but feels like {toFahrenheit(heatIndex)}</span></div>
+        <div>{forecast.Weather}</div>
+      </div>
+    </i-dont-know-weather-and-data-i-guess>
     <div>
-      <span>{forecast.Temp}f</span>
-      <span>but feels like {toFahrenheit(heatIndex)}</span>
-      <span>{forecast.Weather}</span>
+      {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
     </div>
   </the-summary>
 
   <conditions>
-    <condition title={observationsDate}>
-      {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
-    </condition>
-
     <condition>Dew Point: {forecast.Dewp}f</condition>
     <condition>Humidity: {forecast.Relh}%</condition>
     <condition>Wind Speed: {forecast.Winds}mph</condition>
