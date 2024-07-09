@@ -13,6 +13,8 @@
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
+
+  /* prettier-ignore */ console.log('^_^', toFahrenheit(heatIndex), forecast.Temp, heatIndex !== forecast.Temp)
 </script>
 
 <style>
@@ -65,7 +67,9 @@
       <div>
         <current-temperature>
           {forecast.Temp}f
-          {#if heatIndex}<span>but feels like {toFahrenheit(heatIndex)}</span>{/if}
+          {#if heatIndex && toFahrenheit(heatIndex) !== forecast.Temp}
+            <span>but feels like {toFahrenheit(heatIndex)}f</span>
+          {/if}
         </current-temperature>
         <current-weather-description>{forecast.Weather}</current-weather-description>
       </div>
