@@ -16,6 +16,7 @@
     display: flex;
     gap: 8px;
     margin-top: 50px;
+    font-size: var(--font-size-small);
   }
 </style>
 
@@ -26,14 +27,7 @@
       href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"
       target="_blank"
     >
-      Forecast API
-    </a>
-    |
-    <a
-      href="https://api.weather.gov/stations/KANE/observations/latest?require_qc=false"
-      target="_blank"
-    >
-      Weather API
+      Source: Forecast API
     </a>
   </footer>
 </main>

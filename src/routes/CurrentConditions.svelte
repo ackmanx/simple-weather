@@ -4,7 +4,6 @@
   import { DateTime } from 'luxon'
 
   const {
-    heatIndex,
     temp,
     description,
     weatherIcon,
@@ -38,10 +37,6 @@
 
   current-temperature {
     font-size: var(--font-size-xxlarge);
-
-    span {
-      font-size: var(--font-size-normal);
-    }
   }
 
   observation-date {
@@ -73,10 +68,7 @@
       />
       <div>
         <current-temperature>
-          {temp}f
-          {#if heatIndex !== temp}
-            <span>but feels like {heatIndex}f</span>
-          {/if}
+          {temp}°F
         </current-temperature>
         <current-weather-description>{description}</current-weather-description>
       </div>
@@ -93,16 +85,16 @@
   </the-summary>
 
   <conditions>
-    <condition>Dew Point: {dewPoint}f</condition>
+    <condition>Dew Point: {dewPoint}°F</condition>
     <condition>Humidity: {humidity}%</condition>
-    <condition>Wind Speed: {windSpeed}mph</condition>
+    <condition>Wind Speed: {windSpeed} mph</condition>
 
     {#if windGust !== 'NA'}
-      <condition>Wind Gust: {windGust}mph</condition>
+      <condition>Wind Gust: {windGust} mph</condition>
     {/if}
 
     {#if windChill !== 'NA'}
-      <condition>Wind Chill: {windChill}f</condition>
+      <condition>Wind Chill: {windChill}°F</condition>
     {/if}
   </conditions>
 </component>
