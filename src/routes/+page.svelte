@@ -5,6 +5,9 @@
 <style>
   page {
     width: 350px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 24px;
   }
 </style>
 

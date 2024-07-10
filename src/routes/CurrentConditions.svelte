@@ -40,7 +40,7 @@
   }
 
   observation-date {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xsmall);
     width: 150px;
     text-align: center;
   }
@@ -52,10 +52,14 @@
 
   condition {
     width: 100px;
-    height: 100px;
+    height: 50px;
     border-radius: 10px;
     margin: 8px;
     padding: 8px;
+
+    span {
+      font-size: var(--font-size-small);
+    }
   }
 </style>
 
@@ -85,16 +89,16 @@
   </the-summary>
 
   <conditions>
-    <condition>Dew Point: {dewPoint}°F</condition>
-    <condition>Humidity: {humidity}%</condition>
-    <condition>Wind Speed: {windSpeed} mph</condition>
+    <condition><span>Dew Point</span> {dewPoint}°F</condition>
+    <condition><span>Humidity</span> {humidity}%</condition>
+    <condition><span>Wind Speed</span> {windSpeed} mph</condition>
 
     {#if windGust !== 'NA'}
-      <condition>Wind Gust: {windGust} mph</condition>
+      <condition><span>Wind Gust</span> {windGust} mph</condition>
     {/if}
 
     {#if windChill !== 'NA'}
-      <condition>Wind Chill: {windChill}°F</condition>
+      <condition><span>Wind Chill</span> {windChill}°F</condition>
     {/if}
   </conditions>
 </component>
