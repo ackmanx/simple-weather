@@ -3,11 +3,13 @@
 </script>
 
 <style>
-  page {
+  div {
     width: 350px;
     border: 2px solid black;
     border-radius: 15px;
     padding: 24px;
+    margin-bottom: 24px;
+    background-color: var(--color-background);
   }
 </style>
 
@@ -16,5 +18,7 @@
 </svelte:head>
 
 <page>
-  <CurrentConditions />
+  <div>
+    <CurrentConditions />
+  </div>
 </page>

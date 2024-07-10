@@ -2,6 +2,7 @@
   import { page } from '$app/stores'
 
   import { DateTime } from 'luxon'
+  import { getTempBackgroundColor } from '$utils'
 
   const {
     temp,
@@ -16,6 +17,14 @@
   } = $page.data
 
   let showDate = $state(false)
+
+  $effect(() => {
+    const _body = document.querySelector('body')
+
+    if (_body) {
+      _body.style.backgroundColor = getTempBackgroundColor(temp)
+    }
+  })
 
   const observationsDate = $page.data.observationDate.slice(0, -4)
 
