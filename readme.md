@@ -1,5 +1,14 @@
 # Simple Weather
 
+## Sources
+### Weather.gov API Docs
+https://www.weather.gov/documentation/services-web-api
+
+### Current conditions
+Forecast API: https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json
+Weather API: https://api.weather.gov/stations/KANE/observations/latest?require_qc=false
+* No longer using this one because it updates much less frequently, sometimes hours apart
+
 ## Intellij - Imports not showing up as errors if file not found
 
 In these two files:
