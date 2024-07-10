@@ -1,8 +1,16 @@
 import { toFahrenheit } from '$utils'
 
 interface ResponseBody {
-  heatIndex: any
-  forecastWeatherGov: any
+  heatIndex: string
+  temp: string
+  description: string
+  weatherIcon: string
+  observationDate: string
+  dewPoint: string
+  humidity: string
+  windSpeed: string
+  windGust: string
+  windChill: string
 }
 
 export const load = async (): Promise<ResponseBody> => {
@@ -17,7 +25,15 @@ export const load = async (): Promise<ResponseBody> => {
   const forecastApiData = await forecastApiResponse.json()
 
   return {
+    observationDate: forecastApiData.currentobservation.Date,
+    description: forecastApiData.currentobservation.Weather,
+    weatherIcon: forecastApiData.currentobservation.Weatherimage,
+    temp: forecastApiData.currentobservation.Temp,
     heatIndex: toFahrenheit(weatherApiData.properties.heatIndex.value).toString(),
-    forecastWeatherGov: forecastApiData.currentobservation,
+    dewPoint: forecastApiData.currentobservation.Dewp,
+    humidity: forecastApiData.currentobservation.Relh,
+    windSpeed: forecastApiData.currentobservation.Winds,
+    windGust: forecastApiData.currentobservation.Gust,
+    windChill: forecastApiData.currentobservation.WindChill,
   }
 }

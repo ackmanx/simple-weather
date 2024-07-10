@@ -3,17 +3,25 @@
 
   import { DateTime } from 'luxon'
 
-  const heatIndex = $page.data.heatIndex
-  const forecast = $page.data.forecastWeatherGov
+  const {
+    heatIndex,
+    temp,
+    description,
+    weatherIcon,
+    observationDate,
+    dewPoint,
+    humidity,
+    windSpeed,
+    windGust,
+    windChill,
+  } = $page.data
 
   let showDate = $state(false)
 
-  const observationsDate = forecast.Date.slice(0, -4)
+  const observationsDate = $page.data.observationDate.slice(0, -4)
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
-
-  /* prettier-ignore */ console.log('^_^', heatIndex, forecast.Temp, heatIndex !== forecast.Temp)
 </script>
 
 <style>
@@ -60,24 +68,24 @@
   <the-summary>
     <i-dont-know-weather-and-data-i-guess>
       <img
-        src={`https://forecast.weather.gov/newimages/large/${forecast.Weatherimage}`}
+        src={`https://forecast.weather.gov/newimages/large/${weatherIcon}`}
         alt="shut up intellij"
       />
       <div>
         <current-temperature>
-          {forecast.Temp}f
-          {#if heatIndex !== forecast.Temp}
+          {temp}f
+          {#if heatIndex !== temp}
             <span>but feels like {heatIndex}f</span>
           {/if}
         </current-temperature>
-        <current-weather-description>{forecast.Weather}</current-weather-description>
+        <current-weather-description>{description}</current-weather-description>
       </div>
     </i-dont-know-weather-and-data-i-guess>
 
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <observation-date onclick={() => (showDate = true)}>
-      {DateTime.fromFormat(forecast.Date.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
+      {DateTime.fromFormat(observationDate.slice(0, -4), FORECAST_PARSE_FORMAT).toRelative()}
       {#if showDate}
         - {observationsDate}
       {/if}
@@ -85,16 +93,16 @@
   </the-summary>
 
   <conditions>
-    <condition>Dew Point: {forecast.Dewp}f</condition>
-    <condition>Humidity: {forecast.Relh}%</condition>
-    <condition>Wind Speed: {forecast.Winds}mph</condition>
+    <condition>Dew Point: {dewPoint}f</condition>
+    <condition>Humidity: {humidity}%</condition>
+    <condition>Wind Speed: {windSpeed}mph</condition>
 
-    {#if forecast.Gust !== 'NA'}
-      <condition>Wind Gust: {forecast.Gust}mph</condition>
+    {#if windGust !== 'NA'}
+      <condition>Wind Gust: {windGust}mph</condition>
     {/if}
 
-    {#if forecast.WindChill !== 'NA'}
-      <condition>Wind Chill: {forecast.WindChill}f</condition>
+    {#if windChill !== 'NA'}
+      <condition>Wind Chill: {windChill}f</condition>
     {/if}
   </conditions>
 </component>

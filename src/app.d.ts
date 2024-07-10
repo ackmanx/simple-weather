@@ -7,7 +7,16 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      latestObservations: any
+      heatIndex: string
+      temp: string
+      description: string
+      weatherIcon: string
+      observationDate: string
+      dewPoint: string
+      humidity: string
+      windSpeed: string
+      windGust: string
+      windChill: string
     }
   }
 }
