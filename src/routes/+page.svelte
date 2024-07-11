@@ -5,7 +5,7 @@
 <style>
   div {
     width: 350px;
-    border: 2px solid black;
+    border: 2px solid var(--color-text);
     border-radius: 15px;
     padding: 24px;
     margin-bottom: 24px;

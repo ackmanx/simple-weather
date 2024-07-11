@@ -35,5 +35,11 @@
   :root {
     --color-background: #1d1f20;
     --color-text: #e3e1de;
+    --color-50: rgba(65, 137, 142, 0.7);
+    --color-60: rgba(46, 90, 112, 0.7);
+    --color-70: rgba(26, 69, 42, 0.7);
+    --color-80: rgba(163, 89, 62, 0.7);
+    --color-90: rgba(128, 43, 43, 0.7);
+    --color-100: rgba(81, 22, 22, 0.7);
   }
 }
