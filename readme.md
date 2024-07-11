@@ -13,6 +13,8 @@ Weather API
 * No longer using this one because it updates much less frequently, sometimes hours apart
 
 Open Meteo
+* https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1
+  * Stricly current conditions. Nothing else.
 * https://open-meteo.com/en/docs#current=temperature_2m&hourly=&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&past_days=1&forecast_days=3
 * https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&past_days=1&forecast_days=3
 

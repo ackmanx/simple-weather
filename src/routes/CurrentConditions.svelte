@@ -13,11 +13,11 @@
     windSpeed,
     windGust,
     windChill,
-  } = $page.data
+  } = $page.data.currentConditions
 
   let showDate = $state(false)
 
-  const observationsDate = $page.data.observationDate.slice(0, -4)
+  const observationsDate = observationDate.slice(0, -4)
 
   // https://moment.github.io/luxon/#/parsing?id=table-of-tokens
   const FORECAST_PARSE_FORMAT = 'd MMM h:m a'
