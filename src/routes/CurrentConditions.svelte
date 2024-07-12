@@ -1,10 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
 
-  import { DateTime } from 'luxon'
-
-  const { temp, observationDate, dewPoint, humidity, windSpeed, windGust } =
-    $page.data.currentConditions
+  const { temp, dewPoint, humidity, windSpeed, windGust } = $page.data.currentConditions
 </script>
 
 <style>
@@ -16,12 +13,6 @@
   current-temperature {
     font-size: var(--font-size-xxlarge);
   }
-
-  /*observation-date {*/
-  /*  font-size: var(--font-size-xsmall);*/
-  /*  width: 150px;*/
-  /*  text-align: center;*/
-  /*}*/
 
   /*conditions {*/
   /*  display: flex;*/
@@ -51,9 +42,7 @@
       </div>
     </i-dont-know-weather-and-data-i-guess>
 
-    <observation-date>
-      {DateTime.fromISO(observationDate).toRelative()}
-    </observation-date>
+    <observation-date> </observation-date>
   </the-summary>
 
   <conditions>
