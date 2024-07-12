@@ -6,7 +6,6 @@ interface ResponseBody {
 
 export const load = async (): Promise<ResponseBody> => {
   return {
-    // currentConditions: await getCurrentConditions('open-meteo'),
-    currentConditions: await getCurrentConditions('forecast-api'),
+    currentConditions: await getCurrentConditions('open-meteo'),
   }
 }

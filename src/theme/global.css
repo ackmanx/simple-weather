@@ -1,55 +1,7 @@
 @import '@fontsource-variable/open-sans';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: var(--font-header);
-  color: var(--color-text);
-}
-
 body {
-  margin: 16px;
   background-color: var(--color-background);
-}
-
-a {
-  color: var(--color-text);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  cursor: pointer;
-  font-size: var(--font-size-normal);
-  font-family: var(--font-header);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  font-family: var(--font-header);
-}
-
-h1 {
-  font-size: var(--font-size-large);
-}
-
-svg {
-  /* SVG are inline by default, and they add 4px to the whitespace height automatically as a result */
-  /* I don't like that, so make them all block */
-  display: block;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,15 +1,13 @@
 import { ForecastAPI, OpenMeteo, type Providers } from '$routes/weather-api-adapters'
 
 export interface CurrentConditions {
-  temp: string
-  description: string
-  weatherIcon: string
+  temp: number
+  apparentTemp: number
   observationDate: string
-  dewPoint: string
-  humidity: string
-  windSpeed: string
-  windGust: string
-  windChill: string
+  dewPoint: number
+  humidity: number
+  windSpeed: number
+  windGust: number
 }
 
 export async function getCurrentConditions(

@@ -1,21 +1,12 @@
 <script lang="ts">
+  import '$theme/reset.css'
   import '$theme/variables.css'
   import '$theme/custom-components.css'
   import '$theme/global.css'
 </script>
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-  }
-
   footer {
-    display: flex;
-    gap: 8px;
-    margin-top: 50px;
     font-size: var(--font-size-small);
   }
 </style>
@@ -24,10 +15,10 @@
   <page-slot><slot /></page-slot>
   <footer>
     <a
-      href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"
+      href="https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1"
       target="_blank"
     >
-      Source: Forecast API
+      Current Conditions API
     </a>
   </footer>
 </main>

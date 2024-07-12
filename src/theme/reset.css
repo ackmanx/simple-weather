@@ -1,0 +1,38 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+svg {
+  /* SVG are inline by default, and they add 4px to the whitespace height automatically as a result */
+  /* I don't like that, so make them all block */
+  display: block;
+}
