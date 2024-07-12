@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import DewPointIcon from '$images/source/dew-point.svg'
+  import HumidityIcon from '$images/source/humidity.svg'
   import Image from '$routes/Image.svelte'
 
   const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
@@ -37,8 +38,20 @@
       <Image src={DewPointIcon} />
       {dewPoint}°F
     </condition>
-    <condition><span>Humidity</span> {humidity}%</condition>
-    <condition><span>Wind Speed</span> {windSpeed} mph</condition>
-    <condition><span>Wind Gust</span> {windGust} mph</condition>
+
+    <condition>
+      <Image src={HumidityIcon} />
+      {humidity}%
+    </condition>
+
+    <condition>
+      <Image src={DewPointIcon} />
+      {windSpeed} mph
+    </condition>
+
+    <condition>
+      <Image src={DewPointIcon} />
+      {windGust} mph
+    </condition>
   </the-details>
 </component>
