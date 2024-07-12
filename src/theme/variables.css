@@ -20,8 +20,8 @@
   --font-size-xlarge: 1.75rem; /* 28px */
   --font-size-xxlarge: 2rem; /* 32px */
 
-  --font-body: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
-  --font-header: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
+  --font-family-text: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
+  --font-family-header: 'Open Sans Variable', 'Helvetica Neue', sans-serif;
 }
 
 /***
