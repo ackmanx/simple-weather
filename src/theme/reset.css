@@ -9,6 +9,10 @@ html {
   font-family: var(--font-family-text);
 }
 
+body {
+  margin: 0;
+}
+
 a {
   color: var(--color-text);
   text-decoration: none;
