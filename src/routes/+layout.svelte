@@ -18,9 +18,7 @@
   }
 </style>
 
-<main>
-  <slot />
-</main>
+<slot />
 
 <footer>
   <p>{DateTime.fromISO(observationDate).toRelative()}</p>

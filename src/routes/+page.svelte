@@ -9,8 +9,8 @@
   <title>Simple Weather</title>
 </svelte:head>
 
-<page>
+<main>
   <div>
     <CurrentConditions />
   </div>
-</page>
+</main>
