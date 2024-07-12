@@ -8,6 +8,7 @@ export interface CurrentConditions {
   humidity: number
   windSpeed: number
   windGust: number
+  weatherCode: number
 }
 
 export async function getCurrentConditions(

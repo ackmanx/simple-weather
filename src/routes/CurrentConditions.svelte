@@ -1,8 +1,14 @@
 <script lang="ts">
   import { page } from '$app/stores'
+  import DewPointIcon from '$images/source/dew-point.svg'
+  import Image from '$routes/Image.svelte'
 
-  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust } =
+  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
     $page.data.currentConditions
+
+  const weatherIcons: Record<string, any> = {
+    0: DewPointIcon,
+  }
 </script>
 
 <style>
@@ -27,7 +33,10 @@
   </the-summary>
 
   <the-details>
-    <condition><span>Dew Point</span> {dewPoint}°F</condition>
+    <condition>
+      <Image />
+      {dewPoint}°F
+    </condition>
     <condition><span>Humidity</span> {humidity}%</condition>
     <condition><span>Wind Speed</span> {windSpeed} mph</condition>
     <condition><span>Wind Gust</span> {windGust} mph</condition>

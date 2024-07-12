@@ -10,6 +10,7 @@ export const ForecastAPI = {
     const data = await response.json()
 
     return {
+      weatherCode: 999,
       observationDate: data.currentobservation.Date,
       apparentTemp: 999,
       temp: data.currentobservation.Temp,
@@ -24,7 +25,7 @@ export const ForecastAPI = {
 export const OpenMeteo = {
   currentConditions: async (): Promise<CurrentConditions> => {
     const response = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1'
+      'https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1'
     )
     const data = await response.json()
 
@@ -36,6 +37,7 @@ export const OpenMeteo = {
       humidity: Math.round(data.current.relative_humidity_2m),
       windSpeed: Math.round(data.current.wind_speed_10m),
       windGust: Math.round(data.current.wind_gusts_10m),
+      weatherCode: data.current.weather_code,
     }
   },
 }
