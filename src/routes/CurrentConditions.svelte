@@ -8,7 +8,7 @@
 <style>
   current-temperature {
     background-color: #f8e164;
-    color: var(--color-background);
+    color: #1d1f20; /* always this, because background is always yellow */
     font-size: var(--font-size-mega);
     padding: 0 16px;
 
