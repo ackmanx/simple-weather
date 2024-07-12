@@ -34,7 +34,7 @@
 
   <the-details>
     <condition>
-      <Image />
+      <Image src={DewPointIcon} />
       {dewPoint}°F
     </condition>
     <condition><span>Humidity</span> {humidity}%</condition>

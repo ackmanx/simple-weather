@@ -14,4 +14,10 @@ declare global {
   }
 }
 
+// Declare svg so TS doesn't barf when I try to use it in an image element
+declare module '*.svg' {
+  const content: string
+  export default content
+}
+
 export {}

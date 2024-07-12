@@ -1,5 +1,9 @@
-<script>
-  import DewPointIcon from '$images/source/dew-point.svg'
+<script lang="ts">
+  interface Props {
+    src: string
+  }
+
+  const { src }: Props = $props()
 </script>
 
 <style>
@@ -8,4 +12,4 @@
   }
 </style>
 
-<img src={DewPointIcon} alt="fuck you svelte" />
+<img {src} alt="fuck you svelte" />
