@@ -1,7 +1,8 @@
 <script lang="ts">
   import { page } from '$app/stores'
 
-  const { temp, dewPoint, humidity, windSpeed, windGust } = $page.data.currentConditions
+  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust } =
+    $page.data.currentConditions
 </script>
 
 <style>
@@ -21,7 +22,7 @@
   <the-summary>
     <current-temperature>
       {temp}°F
-      <span>but damn, it feels like 88°F</span>
+      <span>but damn, it feels like {apparentTemp}°F</span>
     </current-temperature>
   </the-summary>
 
