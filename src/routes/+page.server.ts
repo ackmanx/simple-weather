@@ -1,4 +1,4 @@
-import { type CurrentConditions, getCurrentConditions } from '$routes/get-weather'
+import { type CurrentConditions, getCurrentConditions } from '$server/get-weather'
 
 interface ResponseBody {
   currentConditions: CurrentConditions | undefined

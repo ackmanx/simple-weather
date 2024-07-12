@@ -1,4 +1,4 @@
-import { ForecastAPI, OpenMeteo, type Providers } from '$routes/weather-api-adapters'
+import { ForecastAPI, OpenMeteo, type Providers } from '$server/weather-api-adapters'
 
 export interface CurrentConditions {
   temp: number

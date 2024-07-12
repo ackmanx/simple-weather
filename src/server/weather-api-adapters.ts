@@ -1,4 +1,4 @@
-import type { CurrentConditions } from '$routes/get-weather'
+import type { CurrentConditions } from '$server/get-weather'
 
 export type Providers = 'forecast-api' | 'open-meteo'
 
