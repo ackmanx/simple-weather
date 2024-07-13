@@ -22,7 +22,14 @@ Weather Bit
 * https://api.weatherbit.io/v2.0/current?lat=45.06&lon=-93.2052&units=I&key=1a91f331c39d4f91a990c26ed0f18e9c
 * https://www.weatherbit.io/api/swaggerui/weather-api-v2#!/Current32Weather32Data/get_current
 
-## Intellij - Imports not showing up as errors if file not found
+### Icons
+https://thenounproject.com/browse/collection-icon/weather-solid-127210
+https://thenounproject.com/browse/collection-icon/weather-79734
+https://thenounproject.com/browse/collection-icon/hotel-pack-outline-232916
+
+## Tech Issues
+
+### Intellij - Imports not showing up as errors if file not found
 
 In these two files:
 `node_modules/.pnpm/svelte@5.0.0-next.94/node_modules/svelte/types/index.d.ts`
@@ -38,6 +45,6 @@ declare module '*.svelte' {
 
 I'm not sure what the right solution or cause of this issue is, but that works for my purposes right now.
 
-## Svelte Ignore Template
+### Svelte Ignore Template
 
 Check Obsidian note `Svelte.md` for ignore comments
