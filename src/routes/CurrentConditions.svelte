@@ -15,9 +15,14 @@
 </script>
 
 <style>
-  current-temperature {
+  the-summary {
+    display: flex;
+    justify-content: center;
     background-color: #f8e164;
     color: #1d1f20; /* always this, because background is always yellow */
+  }
+
+  current-temperature {
     font-size: var(--font-size-mega);
     padding: 0 16px;
 
