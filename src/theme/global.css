@@ -3,6 +3,3 @@
 body {
   background-color: var(--color-background);
 }
-
-@media (prefers-color-scheme: dark) {
-}

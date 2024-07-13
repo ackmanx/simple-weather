@@ -40,10 +40,3 @@
   --color-background: #ffffff;
   --color-text: rgba(0, 0, 0, 0.7);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #1d1f20;
-    --color-text: #e3e1de;
-  }
-}
