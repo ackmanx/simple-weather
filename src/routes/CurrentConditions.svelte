@@ -5,13 +5,10 @@
   import WindIcon from '$images/source/wind.svg'
   import WindGustIcon from '$images/source/wind-gust.svg'
   import Image from '$routes/Image.svelte'
+  import { WMOCodes } from '$utils'
 
   const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
     $page.data.currentConditions
-
-  const weatherIcons: Record<string, any> = {
-    0: DewPointIcon,
-  }
 </script>
 
 <style>
@@ -47,6 +44,10 @@
       <span>but damn, it feels like {apparentTemp}°F</span>
     </current-temperature>
   </the-summary>
+
+  <the-details>
+    {WMOCodes[weatherCode]}
+  </the-details>
 
   <the-details>
     <condition>
