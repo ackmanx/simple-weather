@@ -2,6 +2,8 @@
   import { page } from '$app/stores'
   import DewPointIcon from '$images/source/dew-point.svg'
   import HumidityIcon from '$images/source/humidity.svg'
+  import WindIcon from '$images/source/wind.svg'
+  import WindGustIcon from '$images/source/wind-gust.svg'
   import Image from '$routes/Image.svelte'
 
   const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
@@ -22,6 +24,14 @@
     span {
       font-size: var(--font-size-normal);
     }
+  }
+
+  the-details {
+    margin: 16px 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
   }
 </style>
 
@@ -45,12 +55,12 @@
     </condition>
 
     <condition>
-      <Image src={DewPointIcon} />
+      <Image src={WindIcon} />
       {windSpeed} mph
     </condition>
 
     <condition>
-      <Image src={DewPointIcon} />
+      <Image src={WindGustIcon} />
       {windGust} mph
     </condition>
   </the-details>
