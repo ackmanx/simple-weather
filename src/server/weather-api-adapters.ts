@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 
-import type { CurrentConditions } from '$server/get-weather'
 import { NWS_PARSE_FORMAT } from '$utils'
+import type { CurrentConditions } from '../types/types'
 
 export type Providers = 'nws' | 'open-meteo'
 

@@ -1,15 +1,5 @@
-import { OpenMeteo, type Providers, nws } from '$server/weather-api-adapters'
-
-export interface CurrentConditions {
-  temp: number
-  apparentTemp?: number
-  observationDate: string
-  dewPoint: number
-  humidity: number
-  windSpeed: number
-  windGust: number
-  description: string
-}
+import { nws, OpenMeteo, type Providers } from '$server/weather-api-adapters'
+import type { CurrentConditions } from '../types/types'
 
 export async function getCurrentConditions(
   provider: Providers

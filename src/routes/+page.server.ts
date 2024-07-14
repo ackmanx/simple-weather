@@ -1,4 +1,5 @@
-import { type CurrentConditions, getCurrentConditions } from '$server/get-weather'
+import { getCurrentConditions } from '$server/get-weather'
+import type { CurrentConditions } from '../types/types'
 
 interface ResponseBody {
   nws: CurrentConditions | undefined

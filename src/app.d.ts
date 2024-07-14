@@ -1,6 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-import type { CurrentConditions } from '$server/get-weather'
+
+import type { CurrentConditions } from './types/types'
 
 declare global {
   namespace App {
