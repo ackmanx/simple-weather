@@ -39,7 +39,15 @@ export const OpenMeteo = {
     const params = {
       latitude: '45.06',
       longitude: '-93.2052',
-      current: 'weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m',
+      current: [
+        'weather_code',
+        'dew_point_2m',
+        'temperature_2m',
+        'relative_humidity_2m',
+        'apparent_temperature',
+        'wind_speed_10m',
+        'wind_gusts_10m',
+      ].join(','),
       temperature_unit: 'fahrenheit',
       wind_speed_unit: 'mph',
       precipitation_unit: 'inch',
@@ -48,7 +56,7 @@ export const OpenMeteo = {
     }
 
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?${new URLSearchParams(params).toString()}`,
+      `https://api.open-meteo.com/v1/forecast?${new URLSearchParams(params).toString()}`
     )
 
     const data = await response.json()
