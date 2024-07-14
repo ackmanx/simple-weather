@@ -41,6 +41,7 @@
   }
 
   current-temperature {
+    font-family: var(--font-family-header);
     font-size: var(--font-size-mega);
     padding: 0 16px;
 

@@ -8,6 +8,9 @@ dependencies:
   '@fontsource-variable/open-sans':
     specifier: ^5.0.29
     version: 5.0.29
+  '@fontsource/zen-kurenaido':
+    specifier: ^5.0.18
+    version: 5.0.19
   '@sveltejs/kit':
     specifier: ^2.5.18
     version: 2.5.18(@sveltejs/vite-plugin-svelte@3.1.1)(svelte@5.0.0-next.175)(vite@5.3.3)
@@ -450,6 +453,10 @@ packages:
 
   /@fontsource-variable/open-sans@5.0.29:
     resolution: {integrity: sha512-p8T55iQwhErREcjY997t4ah9JKTyJNSBDDVfvVsWIQRGpA2fcTPk9rLue/Mkrr5/efkehxTSbT8JpTTRaFbM5A==}
+    dev: false
+
+  /@fontsource/zen-kurenaido@5.0.19:
+    resolution: {integrity: sha512-BHA3QICYrI3KhiD/m5Ki+d7d1dR/oFVzc1gIpsyhVGaF1F0EJegykPBoB60h3kPDlzzS1mIz1Avnrs9ewFOZAA==}
     dev: false
 
   /@humanwhocodes/module-importer@1.0.1:

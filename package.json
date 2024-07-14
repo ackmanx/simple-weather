@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource-variable/open-sans": "^5.0.29",
+    "@fontsource/zen-kurenaido": "^5.0.18",
     "@sveltejs/kit": "^2.5.18",
     "luxon": "^3.4.4",
     "mongodb": "^6.8.0",
