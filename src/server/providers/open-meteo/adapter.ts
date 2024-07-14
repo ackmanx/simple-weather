@@ -36,9 +36,21 @@ const WMOCodes: Record<number, string> = {
 
 export const OpenMeteo = {
   currentConditions: async (): Promise<CurrentConditions> => {
+    const params = {
+      latitude: '45.06',
+      longitude: '-93.2052',
+      current: 'weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m',
+      temperature_unit: 'fahrenheit',
+      wind_speed_unit: 'mph',
+      precipitation_unit: 'inch',
+      timezone: 'America/Chicago',
+      forecast_days: '1',
+    }
+
     const response = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1',
+      `https://api.open-meteo.com/v1/forecast?${new URLSearchParams(params).toString()}`,
     )
+
     const data = await response.json()
 
     return {
