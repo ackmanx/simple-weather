@@ -23,7 +23,7 @@
 </style>
 
 <svelte:head>
-  <title>Simple Weather</title>
+  <title>Yet Another Weather Thing</title>
 </svelte:head>
 
 <main>

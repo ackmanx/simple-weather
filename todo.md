@@ -1,4 +1,4 @@
-# Simple Weather Todo List
+# yet-another-weather-thing Todo List
 
 ## 5 Day Forecast
 https://api.weather.gov/gridpoints/MPX/109,77/forecast

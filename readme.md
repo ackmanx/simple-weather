@@ -1,4 +1,4 @@
-# Simple Weather
+# Yet Another Weather Thing
 
 ## Sources
 ### Weather.gov API Docs
