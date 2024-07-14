@@ -5,9 +5,8 @@
   import WindIcon from '$images/source/wind.svg'
   import WindGustIcon from '$images/source/wind-gust.svg'
   import Image from '$routes/Image.svelte'
-  import { WMOCodes } from '$utils'
 
-  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
+  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, description } =
     $page.data.openMeteo
 </script>
 
@@ -46,7 +45,7 @@
   </the-summary>
 
   <the-details>
-    {WMOCodes[weatherCode]}
+    {description}
   </the-details>
 
   <the-details>
