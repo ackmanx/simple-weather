@@ -33,7 +33,7 @@ const WMOCodes: Record<number, string> = {
   86: 'Snow showers: Heavy',
 }
 
-export const ForecastAPI = {
+export const nws = {
   currentConditions: async (): Promise<CurrentConditions> => {
     const response = await fetch(
       'https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json'

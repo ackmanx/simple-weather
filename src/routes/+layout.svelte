@@ -7,7 +7,7 @@
   import { page } from '$app/stores'
 
   const openMeteoDate = DateTime.fromISO($page.data.openMeteo.observationDate).toRelative()
-  const nwsDate = DateTime.fromISO($page.data.forecastApi.observationDate).toRelative()
+  const nwsDate = DateTime.fromISO($page.data.nws.observationDate).toRelative()
 </script>
 
 <style>

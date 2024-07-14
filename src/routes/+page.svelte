@@ -1,9 +1,9 @@
 <script lang="ts">
   import CurrentConditions from '$routes/CurrentConditions.svelte'
 
-  let provider = $state<'forecastApi' | 'openMeteo'>('openMeteo')
+  let provider = $state<'nws' | 'openMeteo'>('openMeteo')
 
-  function setProvider(newProvider: 'forecastApi' | 'openMeteo') {
+  function setProvider(newProvider: 'nws' | 'openMeteo') {
     provider = newProvider
   }
 </script>
@@ -28,12 +28,10 @@
 
 <main>
   <div>
-    <button class:isActive={provider === 'openMeteo'} onclick={() => setProvider('openMeteo')}
-      >Open Meteo</button
-    >
-    <button class:isActive={provider === 'forecastApi'} onclick={() => setProvider('forecastApi')}
-      >Weather Gov Forecast</button
-    >
+    <button class:isActive={provider === 'openMeteo'} onclick={() => setProvider('openMeteo')}>
+      Open Meteo
+    </button>
+    <button class:isActive={provider === 'nws'} onclick={() => setProvider('nws')}> NWS </button>
     <CurrentConditions {provider} />
   </div>
 </main>

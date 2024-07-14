@@ -7,7 +7,7 @@
   import Image from '$routes/Image.svelte'
 
   interface Props {
-    provider: 'forecastApi' | 'openMeteo'
+    provider: 'nws' | 'openMeteo'
   }
 
   const { provider }: Props = $props()

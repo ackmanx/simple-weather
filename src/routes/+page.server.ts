@@ -2,12 +2,12 @@ import { type CurrentConditions, getCurrentConditions } from '$server/get-weathe
 
 interface ResponseBody {
   openMeteo: CurrentConditions | undefined
-  forecastApi: CurrentConditions | undefined
+  nws: CurrentConditions | undefined
 }
 
 export const load = async (): Promise<ResponseBody> => {
   return {
-    forecastApi: await getCurrentConditions('forecast-api'),
+    nws: await getCurrentConditions('forecast-api'),
     openMeteo: await getCurrentConditions('open-meteo'),
   }
 }

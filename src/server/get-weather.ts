@@ -1,4 +1,4 @@
-import { ForecastAPI, OpenMeteo, type Providers } from '$server/weather-api-adapters'
+import { OpenMeteo, type Providers, nws } from '$server/weather-api-adapters'
 
 export interface CurrentConditions {
   temp: number
@@ -15,7 +15,7 @@ export async function getCurrentConditions(
   provider: Providers
 ): Promise<CurrentConditions | undefined> {
   if (provider === 'forecast-api') {
-    return await ForecastAPI.currentConditions()
+    return await nws.currentConditions()
   }
 
   if (provider === 'open-meteo') {
