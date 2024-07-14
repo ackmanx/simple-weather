@@ -6,7 +6,7 @@
   import { DateTime } from 'luxon'
   import { page } from '$app/stores'
 
-  const { observationDate } = $page.data.currentConditions
+  const { observationDate } = $page.data.openMeteo
 </script>
 
 <style>

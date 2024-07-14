@@ -8,7 +8,7 @@
   import { WMOCodes } from '$utils'
 
   const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, weatherCode } =
-    $page.data.currentConditions
+    $page.data.openMeteo
 </script>
 
 <style>

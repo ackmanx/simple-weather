@@ -9,7 +9,7 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      currentConditions: CurrentConditions
+      openMeteo: CurrentConditions
     }
   }
 }
