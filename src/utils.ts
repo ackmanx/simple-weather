@@ -31,3 +31,6 @@ export function getTempBackgroundColor(temp: string) {
       return 'var(--color-background)'
   }
 }
+
+// https://moment.github.io/luxon/#/parsing?id=table-of-tokens
+export const NWS_PARSE_FORMAT = 'd MMM h:m a'

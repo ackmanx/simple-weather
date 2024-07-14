@@ -2,8 +2,8 @@ import { ForecastAPI, OpenMeteo, type Providers } from '$server/weather-api-adap
 
 export interface CurrentConditions {
   temp: number
-  apparentTemp: number
-  observationDate: string
+  apparentTemp?: number
+  observationDate?: string | null
   dewPoint: number
   humidity: number
   windSpeed: number

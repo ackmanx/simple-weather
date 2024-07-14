@@ -7,7 +7,7 @@
   import Image from '$routes/Image.svelte'
 
   interface Props {
-    provider: 'weatherGovForecast' | 'openMeteo'
+    provider: 'forecastApi' | 'openMeteo'
   }
 
   const { provider }: Props = $props()
@@ -63,7 +63,7 @@
   <the-summary>
     <current-temperature>
       {temp}°F
-      <span>but damn, it feels like {apparentTemp}°F</span>
+      {#if apparentTemp}<span>but damn, it feels like {apparentTemp}°F</span>{/if}
     </current-temperature>
   </the-summary>
 

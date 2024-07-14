@@ -1,4 +1,7 @@
+import { DateTime } from 'luxon'
+
 import type { CurrentConditions } from '$server/get-weather'
+import { NWS_PARSE_FORMAT } from '$utils'
 
 export type Providers = 'forecast-api' | 'open-meteo'
 
@@ -37,10 +40,11 @@ export const ForecastAPI = {
     )
     const data = await response.json()
 
+    const dateWithoutTimezone = data.currentobservation.Date.slice(0, -4)
+
     return {
       description: data.currentobservation.Weather,
-      observationDate: data.currentobservation.Date,
-      apparentTemp: 999,
+      observationDate: DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT).toISODate(),
       temp: data.currentobservation.Temp,
       dewPoint: data.currentobservation.Dewp,
       humidity: data.currentobservation.Relh,

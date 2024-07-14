@@ -10,6 +10,7 @@ declare global {
     // interface Platform {}
     interface PageData {
       openMeteo: CurrentConditions
+      forecastApi: CurrentConditions
     }
   }
 }

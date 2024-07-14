@@ -6,7 +6,8 @@
   import { DateTime } from 'luxon'
   import { page } from '$app/stores'
 
-  const { observationDate } = $page.data.openMeteo
+  const openMeteoDate = DateTime.fromISO($page.data.openMeteo.observationDate).toRelative()
+  const nwsDate = DateTime.fromISO($page.data.forecastApi.observationDate).toRelative()
 </script>
 
 <style>
@@ -21,7 +22,16 @@
 <slot />
 
 <footer>
-  <p>{DateTime.fromISO(observationDate).toRelative()}</p>
+  <p>{openMeteoDate}</p>
+  <p>{nwsDate}</p>
+  <p>
+    <a
+      href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"
+      target="_blank"
+    >
+      NWS - {nwsDate}
+    </a>
+  </p>
   <p>
     <a
       href="https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1"
