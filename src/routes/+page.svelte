@@ -14,6 +14,11 @@
     background-color: white;
     border: none;
     padding: 16px;
+
+    &.isActive {
+      background-color: #f8e164;
+      color: #1d1f20;
+    }
   }
 </style>
 
@@ -23,8 +28,13 @@
 
 <main>
   <div>
-    <button onclick={() => setProvider('openMeteo')}>Open Meteo</button>
-    <button onclick={() => setProvider('weatherGovForecast')}>Weather Gov Forecast</button>
+    <button class:isActive={provider === 'openMeteo'} onclick={() => setProvider('openMeteo')}
+      >Open Meteo</button
+    >
+    <button
+      class:isActive={provider === 'weatherGovForecast'}
+      onclick={() => setProvider('weatherGovForecast')}>Weather Gov Forecast</button
+    >
     <CurrentConditions {provider} />
   </div>
 </main>

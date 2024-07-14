@@ -38,7 +38,7 @@
     display: flex;
     justify-content: center;
     background-color: #f8e164;
-    color: #1d1f20; /* always this, because background is always yellow */
+    color: #1d1f20;
   }
 
   current-temperature {
