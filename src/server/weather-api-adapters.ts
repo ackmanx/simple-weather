@@ -44,7 +44,10 @@ export const nws = {
 
     return {
       description: data.currentobservation.Weather,
-      observationDate: DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT).toISO() ?? '',
+      observationDate:
+        DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT, {
+          zone: 'America/Chicago',
+        }).toISO() ?? '',
       temp: data.currentobservation.Temp,
       dewPoint: data.currentobservation.Dewp,
       humidity: data.currentobservation.Relh,
