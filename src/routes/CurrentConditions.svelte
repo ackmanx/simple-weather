@@ -36,7 +36,6 @@
 <style>
   the-summary {
     display: flex;
-    justify-content: center;
     background-color: #f8e164;
     color: #1d1f20;
   }
