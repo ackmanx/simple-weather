@@ -1,5 +1,7 @@
-import { NWS, OpenMeteo, type Providers } from '$server/weather-api-adapters'
-import type { CurrentConditions } from '../types/types'
+
+import type { CurrentConditions, Providers } from '../types/types'
+import { NWS } from '$server/providers/nws/adapter'
+import { OpenMeteo } from '$server/providers/open-meteo/adapter'
 
 export async function getCurrentConditions(
   provider: Providers

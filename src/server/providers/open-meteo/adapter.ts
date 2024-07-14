@@ -1,10 +1,11 @@
-import { DateTime } from 'luxon'
+import type { CurrentConditions } from '../../../types/types'
 
-import { NWS_PARSE_FORMAT } from '$utils'
-import type { CurrentConditions } from '../types/types'
-
-export type Providers = 'nws' | 'open-meteo'
-
+/*
+ * WMO 4677 codes can be found in various places online, such as:
+ * https://artefacts.ceda.ac.uk/badc_datadocs/surface/code.html
+ * https://www.nodc.noaa.gov/gtspp/document/codetbls/wmocodes/table4677.html
+ * https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM
+ */
 const WMOCodes: Record<number, string> = {
   0: 'Clear sky',
   1: 'Mainly clear',
@@ -33,34 +34,10 @@ const WMOCodes: Record<number, string> = {
   86: 'Snow showers: Heavy',
 }
 
-export const NWS = {
-  currentConditions: async (): Promise<CurrentConditions> => {
-    const response = await fetch(
-      'https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json'
-    )
-    const data = await response.json()
-
-    const dateWithoutTimezone = data.currentobservation.Date.slice(0, -4)
-
-    return {
-      description: data.currentobservation.Weather,
-      observationDate:
-        DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT, {
-          zone: 'America/Chicago',
-        }).toISO() ?? '',
-      temp: data.currentobservation.Temp,
-      dewPoint: data.currentobservation.Dewp,
-      humidity: data.currentobservation.Relh,
-      windSpeed: data.currentobservation.Winds,
-      windGust: data.currentobservation.Gust,
-    }
-  },
-}
-
 export const OpenMeteo = {
   currentConditions: async (): Promise<CurrentConditions> => {
     const response = await fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1'
+      'https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=weather_code,dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1',
     )
     const data = await response.json()
 

@@ -8,3 +8,5 @@ export interface CurrentConditions {
   windGust: number
   description: string
 }
+
+export type Providers = 'nws' | 'open-meteo'
