@@ -1,11 +1,19 @@
-import type { CurrentConditions } from '../../../types/types'
 import { DateTime } from 'luxon'
+
 import { NWS_PARSE_FORMAT } from '$utils'
+
+import type { CurrentConditions } from '../../../types/types'
 
 export const NWS = {
   currentConditions: async (): Promise<CurrentConditions> => {
+    const params = {
+      lat: '45.0632',
+      lon: '-93.2052',
+      FcstType: 'json',
+    }
+
     const response = await fetch(
-      'https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json',
+      `https://forecast.weather.gov/MapClick.php?${new URLSearchParams(params).toString()}`
     )
     const data = await response.json()
 
