@@ -9,6 +9,12 @@
 </script>
 
 <style>
+  button {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    padding: 16px;
+  }
 </style>
 
 <svelte:head>
