@@ -6,8 +6,31 @@
   import WindGustIcon from '$images/source/wind-gust.svg'
   import Image from '$routes/Image.svelte'
 
-  const { temp, apparentTemp, dewPoint, humidity, windSpeed, windGust, description } =
-    $page.data.openMeteo
+  interface Props {
+    provider: 'weatherGovForecast' | 'openMeteo'
+  }
+
+  const { provider }: Props = $props()
+
+  let temp = $state($page.data['openMeteo'].temp)
+  let apparentTemp = $state($page.data['openMeteo'].apparentTemp)
+  let dewPoint = $state($page.data['openMeteo'].dewPoint)
+  let humidity = $state($page.data['openMeteo'].humidity)
+  let windSpeed = $state($page.data['openMeteo'].windSpeed)
+  let windGust = $state($page.data['openMeteo'].windGust)
+  let description = $state($page.data['openMeteo'].description)
+
+  $effect(() => {
+    if (provider) {
+      temp = $page.data[provider].temp
+      apparentTemp = $page.data[provider].apparentTemp
+      dewPoint = $page.data[provider].dewPoint
+      humidity = $page.data[provider].humidity
+      windSpeed = $page.data[provider].windSpeed
+      windGust = $page.data[provider].windGust
+      description = $page.data[provider].description
+    }
+  })
 </script>
 
 <style>
