@@ -3,7 +3,7 @@ import { DateTime } from 'luxon'
 import type { CurrentConditions } from '$server/get-weather'
 import { NWS_PARSE_FORMAT } from '$utils'
 
-export type Providers = 'forecast-api' | 'open-meteo'
+export type Providers = 'nws' | 'open-meteo'
 
 const WMOCodes: Record<number, string> = {
   0: 'Clear sky',

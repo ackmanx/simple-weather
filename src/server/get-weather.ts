@@ -14,7 +14,7 @@ export interface CurrentConditions {
 export async function getCurrentConditions(
   provider: Providers
 ): Promise<CurrentConditions | undefined> {
-  if (provider === 'forecast-api') {
+  if (provider === 'nws') {
     return await nws.currentConditions()
   }
 
