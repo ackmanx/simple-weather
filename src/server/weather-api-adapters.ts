@@ -44,7 +44,7 @@ export const ForecastAPI = {
 
     return {
       description: data.currentobservation.Weather,
-      observationDate: DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT).toISODate(),
+      observationDate: DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT).toISO() ?? '',
       temp: data.currentobservation.Temp,
       dewPoint: data.currentobservation.Dewp,
       humidity: data.currentobservation.Relh,
