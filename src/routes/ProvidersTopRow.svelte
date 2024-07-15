@@ -23,8 +23,8 @@
   }
 </style>
 
+<button class:isActive={provider === 'nws'} onclick={() => setProvider('nws')}> NWS </button>
+
 <button class:isActive={provider === 'open-meteo'} onclick={() => setProvider('open-meteo')}>
   Open Meteo
 </button>
-
-<button class:isActive={provider === 'nws'} onclick={() => setProvider('nws')}> NWS </button>

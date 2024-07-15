@@ -13,24 +13,22 @@
 
   const { provider }: Props = $props()
 
-  let temp = $state($page.data['open-meteo'].temp)
-  let apparentTemp = $state($page.data['open-meteo'].apparentTemp)
-  let dewPoint = $state($page.data['open-meteo'].dewPoint)
-  let humidity = $state($page.data['open-meteo'].humidity)
-  let windSpeed = $state($page.data['open-meteo'].windSpeed)
-  let windGust = $state($page.data['open-meteo'].windGust)
-  let description = $state($page.data['open-meteo'].description)
+  let temp = $state()
+  let apparentTemp = $state()
+  let dewPoint = $state()
+  let humidity = $state()
+  let windSpeed = $state()
+  let windGust = $state()
+  let description = $state()
 
   $effect(() => {
-    if (provider) {
-      temp = $page.data[provider].temp
-      apparentTemp = $page.data[provider].apparentTemp
-      dewPoint = $page.data[provider].dewPoint
-      humidity = $page.data[provider].humidity
-      windSpeed = $page.data[provider].windSpeed
-      windGust = $page.data[provider].windGust
-      description = $page.data[provider].description
-    }
+    temp = $page.data[provider].temp
+    apparentTemp = $page.data[provider].apparentTemp
+    dewPoint = $page.data[provider].dewPoint
+    humidity = $page.data[provider].humidity
+    windSpeed = $page.data[provider].windSpeed
+    windGust = $page.data[provider].windGust
+    description = $page.data[provider].description
   })
 </script>
 

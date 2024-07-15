@@ -3,7 +3,7 @@
   import type { Providers } from '../types/types'
   import ProvidersTopRow from '$routes/ProvidersTopRow.svelte'
 
-  let provider = $state<Providers>('open-meteo')
+  let provider = $state<Providers>('nws')
 
   function setProvider(newProvider: Providers) {
     provider = newProvider
