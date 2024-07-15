@@ -1,6 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-
 import type { CurrentConditions } from './types/types'
 
 declare global {
@@ -10,7 +9,7 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      openMeteo: CurrentConditions
+      'open-meteo': CurrentConditions
       nws: CurrentConditions
     }
   }

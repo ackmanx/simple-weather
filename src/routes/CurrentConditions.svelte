@@ -5,20 +5,21 @@
   import WindIcon from '$images/source/wind.svg'
   import WindGustIcon from '$images/source/wind-gust.svg'
   import Image from '$routes/Image.svelte'
+  import type { Providers } from '../types/types'
 
   interface Props {
-    provider: 'nws' | 'openMeteo'
+    provider: Providers
   }
 
   const { provider }: Props = $props()
 
-  let temp = $state($page.data['openMeteo'].temp)
-  let apparentTemp = $state($page.data['openMeteo'].apparentTemp)
-  let dewPoint = $state($page.data['openMeteo'].dewPoint)
-  let humidity = $state($page.data['openMeteo'].humidity)
-  let windSpeed = $state($page.data['openMeteo'].windSpeed)
-  let windGust = $state($page.data['openMeteo'].windGust)
-  let description = $state($page.data['openMeteo'].description)
+  let temp = $state($page.data['open-meteo'].temp)
+  let apparentTemp = $state($page.data['open-meteo'].apparentTemp)
+  let dewPoint = $state($page.data['open-meteo'].dewPoint)
+  let humidity = $state($page.data['open-meteo'].humidity)
+  let windSpeed = $state($page.data['open-meteo'].windSpeed)
+  let windGust = $state($page.data['open-meteo'].windGust)
+  let description = $state($page.data['open-meteo'].description)
 
   $effect(() => {
     if (provider) {
