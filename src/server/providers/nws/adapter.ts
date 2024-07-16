@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 
+import type { NWSData } from '$server/providers/nws/types'
 import { NWS_PARSE_FORMAT } from '$utils'
 
 import type { CurrentConditions } from '../../../types/types'
@@ -15,21 +16,21 @@ export const NWS = {
     const response = await fetch(
       `https://forecast.weather.gov/MapClick.php?${new URLSearchParams(params).toString()}`
     )
-    const data = await response.json()
+    const data: NWSData = await response.json()
 
     const dateWithoutTimezone = data.currentobservation.Date.slice(0, -4)
+    const observationDate = DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT, {
+      zone: 'America/Chicago',
+    }).toISO()
 
     return {
+      observationDate: observationDate ?? '',
       description: data.currentobservation.Weather,
-      observationDate:
-        DateTime.fromFormat(dateWithoutTimezone, NWS_PARSE_FORMAT, {
-          zone: 'America/Chicago',
-        }).toISO() ?? '',
-      temp: data.currentobservation.Temp,
-      dewPoint: data.currentobservation.Dewp,
-      humidity: data.currentobservation.Relh,
-      windSpeed: data.currentobservation.Winds,
-      windGust: data.currentobservation.Gust,
+      temp: Number(data.currentobservation.Temp),
+      dewPoint: Number(data.currentobservation.Dewp),
+      humidity: Number(data.currentobservation.Relh),
+      windSpeed: Number(data.currentobservation.Winds),
+      windGust: Number(data.currentobservation.Gust),
     }
   },
 }

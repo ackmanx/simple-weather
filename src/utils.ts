@@ -1,5 +1,9 @@
 export function toFahrenheit(celsius: number | null) {
-  return celsius ? Math.round(celsius * 1.8 + 32) : ''
+  return celsius ? Math.round(celsius * 1.8 + 32) : null
+}
+
+export function toMph(speedKph: number | null) {
+  return speedKph ? Math.round(speedKph / 1.609344) : null
 }
 
 export function getTempBackgroundColor(temp: string) {

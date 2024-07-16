@@ -9,8 +9,8 @@ Forecast API
 * https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json
 
 Weather API
-* https://api.weather.gov/stations/KANE/observations/latest?require_qc=false
-* No longer using this one because it updates much less frequently, sometimes hours apart
+* https://api.weather.gov/stations/KANE/observations/latest
+  * Compare this with gridpoint.
 
 Open Meteo
 * https://api.open-meteo.com/v1/forecast?latitude=45.06&longitude=-93.2052&current=dew_point_2m,temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=1

@@ -1,12 +1,12 @@
 export interface CurrentConditions {
-  temp: number
-  apparentTemp?: number
+  temp: number | null
+  apparentTemp?: number | null
   observationDate: string
-  dewPoint: number
-  humidity: number
-  windSpeed: number
-  windGust: number
+  dewPoint: number | null
+  humidity: number | null
+  windSpeed: number | null
+  windGust: number | null
   description: string
 }
 
-export type Providers = 'nws' | 'open-meteo'
+export type Providers = 'nws' | 'open-meteo' | 'gov-api'

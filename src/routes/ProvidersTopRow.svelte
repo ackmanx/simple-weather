@@ -28,3 +28,7 @@
 <button class:isActive={provider === 'open-meteo'} onclick={() => setProvider('open-meteo')}>
   Open Meteo
 </button>
+
+<button class:isActive={provider === 'gov-api'} onclick={() => setProvider('gov-api')}>
+  Gov API
+</button>
