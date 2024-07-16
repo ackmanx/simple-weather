@@ -8,6 +8,7 @@
 
   const openMeteoDate = DateTime.fromISO($page.data['open-meteo'].observationDate).toRelative()
   const nwsDate = DateTime.fromISO($page.data.nws.observationDate).toRelative()
+  const govApiDate = DateTime.fromISO($page.data['gov-api'].observationDate).toRelative()
 </script>
 
 <style>
@@ -22,6 +23,11 @@
 <slot />
 
 <footer>
+  <p>
+    <a href="https://api.weather.gov/stations/KANE/observations/latest" target="_blank">
+      Gov API - {govApiDate}
+    </a>
+  </p>
   <p>
     <a
       href="https://forecast.weather.gov/MapClick.php?lat=45.0632&lon=-93.2052&FcstType=json"

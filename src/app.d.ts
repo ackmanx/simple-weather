@@ -1,6 +1,6 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
-import type { CurrentConditions } from './types/types'
+import type { NormalizedCurrentConditions } from './types/types'
 
 declare global {
   namespace App {
@@ -9,8 +9,9 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      'open-meteo': CurrentConditions
-      nws: CurrentConditions
+      'gov-api': NormalizedCurrentConditions
+      nws: NormalizedCurrentConditions
+      'open-meteo': NormalizedCurrentConditions
     }
   }
 }
