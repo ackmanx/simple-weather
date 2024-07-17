@@ -23,12 +23,12 @@
   }
 </style>
 
-<button class:isActive={provider === 'nws'} onclick={() => setProvider('nws')}> NWS </button>
-
-<button class:isActive={provider === 'open-meteo'} onclick={() => setProvider('open-meteo')}>
-  Open Meteo
+<button class:isActive={provider === 'govApi'} onclick={() => setProvider('govApi')}>
+  Gov API
 </button>
 
-<button class:isActive={provider === 'gov-api'} onclick={() => setProvider('gov-api')}>
-  Gov API
+<button class:isActive={provider === 'nws'} onclick={() => setProvider('nws')}> NWS </button>
+
+<button class:isActive={provider === 'openMeteo'} onclick={() => setProvider('openMeteo')}>
+  Open Meteo
 </button>

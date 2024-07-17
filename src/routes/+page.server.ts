@@ -7,14 +7,14 @@ import type { NormalizedCurrentConditions } from '../types/types'
 
 interface ResponseBody {
   nws: NormalizedCurrentConditions | undefined
-  'open-meteo': NormalizedCurrentConditions | undefined
-  'gov-api': NormalizedCurrentConditions | undefined
+  openMeteo: NormalizedCurrentConditions | undefined
+  govApi: NormalizedCurrentConditions | undefined
 }
 
 export const load = async (): Promise<ResponseBody> => {
   return {
     nws: normalize(await NWS.currentConditions()),
-    'open-meteo': normalize(await OpenMeteo.currentConditions()),
-    'gov-api': normalize(await GovApi.currentConditions()),
+    openMeteo: normalize(await OpenMeteo.currentConditions()),
+    govApi: normalize(await GovApi.currentConditions()),
   }
 }

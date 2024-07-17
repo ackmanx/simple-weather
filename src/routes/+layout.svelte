@@ -6,9 +6,9 @@
   import { DateTime } from 'luxon'
   import { page } from '$app/stores'
 
-  const openMeteoDate = DateTime.fromISO($page.data['open-meteo'].observationDate).toRelative()
+  const openMeteoDate = DateTime.fromISO($page.data.openMeteo.observationDate).toRelative()
   const nwsDate = DateTime.fromISO($page.data.nws.observationDate).toRelative()
-  const govApiDate = DateTime.fromISO($page.data['gov-api'].observationDate).toRelative()
+  const govApiDate = DateTime.fromISO($page.data.govApi.observationDate).toRelative()
 </script>
 
 <style>

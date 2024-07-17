@@ -20,4 +20,4 @@ export interface NormalizedCurrentConditions {
   description?: string
 }
 
-export type Providers = 'nws' | 'open-meteo' | 'gov-api'
+export type Providers = 'nws' | 'openMeteo' | 'govApi'

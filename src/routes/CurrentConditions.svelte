@@ -56,6 +56,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  condition {
+    min-width: 80px;
+  }
 </style>
 
 <component>
@@ -73,22 +77,38 @@
   <the-details>
     <condition>
       <Image src={DewPointIcon} />
-      {dewPoint}°F
+      {#if dewPoint}
+        {dewPoint}°F
+      {:else}
+        -- °F
+      {/if}
     </condition>
 
     <condition>
       <Image src={HumidityIcon} />
-      {humidity}%
+      {#if humidity}
+        {humidity}%
+      {:else}
+        --%
+      {/if}
     </condition>
 
     <condition>
       <Image src={WindIcon} />
-      {windSpeed} mph
+      {#if windSpeed}
+        {windSpeed} mph
+      {:else}
+        -- mph
+      {/if}
     </condition>
 
     <condition>
       <Image src={WindGustIcon} />
-      {windGust} mph
+      {#if windGust}
+        {windGust} mph
+      {:else}
+        -- mph
+      {/if}
     </condition>
   </the-details>
 </component>

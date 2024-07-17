@@ -9,9 +9,9 @@ declare global {
     // interface PageState {}
     // interface Platform {}
     interface PageData {
-      'gov-api': NormalizedCurrentConditions
+      govApi: NormalizedCurrentConditions
       nws: NormalizedCurrentConditions
-      'open-meteo': NormalizedCurrentConditions
+      openMeteo: NormalizedCurrentConditions
     }
   }
 }
